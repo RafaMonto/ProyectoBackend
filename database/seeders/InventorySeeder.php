@@ -15,13 +15,13 @@ class InventorySeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('inventories')->insert([
+        DB::table('inventory')->insert([
             'name_product' => 'Leche',
             'quantity' => 10,
             'purchase_price' => 1.00,
             'supplier_id' => 1,
         ]);
-        DB::table('inventories')->insert([
+        DB::table('inventory')->insert([
             'name_product' => 'Pan',
             'quantity' => 20,
             'purchase_price' => 0.50,
