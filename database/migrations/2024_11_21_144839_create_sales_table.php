@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->timestamp('created_at_exact')->useCurrent();
             $table->string('total');
-            $table->foreign('employed_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->foreignId('employed_id');
             $table->string('dishes');
+
+            $table->foreign('employed_id')
+                ->references('id')
+                ->on('employees')
+                ->onDelete('cascade');
         });
     }
 
