@@ -20,3 +20,6 @@ App\Http\Controllers\EmployeeController::class);
 Route::apiResource('/supplier',
 App\Http\Controllers\SupplierController::class);
 
+Route::apiResource('/invoice',
+App\Http\Controllers\InvoiceController::class);
+
