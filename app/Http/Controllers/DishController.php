@@ -18,7 +18,6 @@ class DishController extends Controller
         /* $dishes = Dish::orderBy('name', 'asc')->get();
 
         return response()->json(['data' => $dishes], 200); */
-        
         //return de todos los platos
         $sort = $request->input('sort', 'name');//campo por el que se ordena
         $type = $request->input('type', 'asc');//tipo de orden
