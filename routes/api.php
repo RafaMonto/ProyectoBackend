@@ -14,3 +14,9 @@ App\Http\Controllers\DishController::class);
 Route::apiResource('/inventory',
 App\Http\Controllers\InventoryController::class);
 
+Route::apiResource('/employee',
+App\Http\Controllers\EmployeeController::class);
+
+Route::apiResource('/supplier',
+App\Http\Controllers\SupplierController::class);
+
