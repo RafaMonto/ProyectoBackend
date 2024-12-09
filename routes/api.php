@@ -25,3 +25,9 @@ App\Http\Controllers\InvoiceController::class);
 
 Route::apiResource('/category',
 App\Http\Controllers\CategoryController::class);
+
+Route::apiResource('/sale',
+App\Http\Controllers\SaleController::class);
+
+Route::apiResource('/inventory',
+App\Http\Controllers\InventoryController::class);

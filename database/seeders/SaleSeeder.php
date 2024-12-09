@@ -15,30 +15,23 @@ class SaleSeeder extends Seeder
     {
         DB::table('sales')->insert([
             'created_at_exact' => now(),
-            'total' => '50.00',
-            'employed_id' => 1,
-            'dishes' => 'Ensalada César, Sopa de Tomate',
-        ]);
-
-        DB::table('sales')->insert([
-            'created_at_exact' => now(),
             'total' => '35.50',
             'employed_id' => 2,
-            'dishes' => 'Hamburguesa, Papas Fritas, Gaseosa',
+            'dishes' => 'Hamburguesa',
         ]);
 
         DB::table('sales')->insert([
             'created_at_exact' => now(),
             'total' => '70.00',
             'employed_id' => 3,
-            'dishes' => 'Filete de Pescado, Puré de Papas, Ensalada',
+            'dishes' => 'Pizza',
         ]);
 
         DB::table('sales')->insert([
             'created_at_exact' => now(),
             'total' => '45.00',
             'employed_id' => 4,
-            'dishes' => 'Pizza Margarita, Refresco',
+            'dishes' => 'Hamburguesa, Pizza',
         ]);
     }
 }
