@@ -84,4 +84,5 @@ Route::middleware(['auth:sanctum'])->group(function() {
         [App\Http\Controllers\ReportController::class, 'dishesReport']);
 });
 
-
+Route::apiResource('/menus',
+App\Http\Controllers\MenuController::class);

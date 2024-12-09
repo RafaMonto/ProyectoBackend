@@ -9,8 +9,16 @@ class Category extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'name',
     ];
+
+    /**
+     * Relación con los platos.
+     * Una categoría puede tener muchos platos.
+     */
+    public function dishes()
+    {
+        return $this->hasMany(Dish::class);
+    }
 }
