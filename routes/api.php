@@ -92,3 +92,4 @@ Route::middleware(['auth:sanctum'])->group(function() {
 });
 
 Route::apiResource('/suppliers', SupplierController::class);
+Route::apiResource('/invoices', InvoiceController::class);
