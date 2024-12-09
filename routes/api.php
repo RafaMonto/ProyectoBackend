@@ -31,3 +31,6 @@ App\Http\Controllers\SaleController::class);
 
 Route::apiResource('/inventory',
 App\Http\Controllers\InventoryController::class);
+
+Route::apiResource('/menus',
+App\Http\Controllers\MenuController::class);
