@@ -48,6 +48,11 @@ Route::get('/inventory',
 Route::get('/inventory/{id}',
     [App\Http\Controllers\DishController::class, 'show']);
 
+Route::get('/menus',
+    [App\Http\Controllers\DishController::class, 'index']);
+Route::get('/menus/{id}',
+    [App\Http\Controllers\DishController::class, 'show']);
+
 Route::post('/v1/login',
     [App\Http\Controllers\api\v1\AuthController::class,
         'login'])->name('api.login');
@@ -75,6 +80,8 @@ Route::middleware(['auth:sanctum'])->group(function() {
         App\Http\Controllers\SaleController::class)->except('index', 'show');
     Route::apiResource('/inventory',
         App\Http\Controllers\InventoryController::class)->except('index', 'show');
+    Route::apiResource('/menus',
+        App\Http\Controllers\MenuController::class)->except('index', 'show');
 
     Route::get('/reports/sales',
         [App\Http\Controllers\ReportController::class, 'salesReport']);
@@ -84,5 +91,3 @@ Route::middleware(['auth:sanctum'])->group(function() {
         [App\Http\Controllers\ReportController::class, 'dishesReport']);
 });
 
-Route::apiResource('/menus',
-App\Http\Controllers\MenuController::class);
