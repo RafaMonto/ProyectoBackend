@@ -21,5 +21,13 @@ class SupplierSeeder extends Seeder
             'address' => '1234 Elm St.',
             'productsOffered' => json_encode(['product1', 'product2', 'product3'])
         ]);
+
+        DB::table('suppliers')->insert([
+            'name' => 'Jane Doe',
+            'email' => 'asdas@sadasd.com',
+            'phone' => '123-456-7890',
+            'address' => '1234 Elm St.',
+            'productsOffered' => json_encode(['product1', 'product2', 'product3'])
+        ]);
     }
 }

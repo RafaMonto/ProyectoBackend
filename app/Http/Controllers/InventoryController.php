@@ -15,31 +15,30 @@ class InventoryController extends Controller
     public function index(Request $request)
     {
         //return de todos los inventarios
-        $sort = $request->input('sort', 'name');    //campo por el que se ordena
-        $type = $request->input('type', 'asc');     //tipo de orden
+        $sort = $request->input('sort', 'name');
+        $type = $request->input('type', 'asc');
 
-        $validType = ['asc', 'desc'];   //tipos de orden validos
+        $validType = ['asc', 'desc'];
 
-        if (! in_array($type, $validType, true)) {  //si el tipo de orden no es valido
-            $message = "Invalid sort type: $type";  //mensaje de error
-
-            return response()-> //devolver mensaje de error
-                json(['data' => $message], 400);    //codigo de error 400
-        }
-
-        $validSort = ['name','quantity','purchase_price','supplier_id'];    //campos por los que se puede ordenar
-
-        if (! in_array($sort, $validSort, true)) {      //si el campo por el que se ordena no es valido
-            $message = "Invalid sort field: $sort";     //mensaje de error
+        if (! in_array($type, $validType, true)) {
+            $message = "Invalid sort type: $type";
 
             return response()->
                 json(['data' => $message], 400);
         }
 
-        $inventories = Inventory::orderBy($sort, $type)->get();      //obtener cabañas ordenadas
+        $validSort = ['name','quantity','purchase_price','supplier_id'];
 
-        return response()->     //devolver cabañas
-            //json(['data' => CabinResource::collection($cabins)], 200);
+        if (! in_array($sort, $validSort, true)) {
+            $message = "Invalid sort field: $sort";
+
+            return response()->
+                json(['data' => $message], 400);
+        }
+
+        $inventories = Inventory::orderBy($sort, $type)->get();
+
+        return response()->
             json([new InventoryCollection($inventories)], 200);
     }
 

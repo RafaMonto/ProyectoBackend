@@ -62,9 +62,10 @@ class DishController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Dish $dish)
+    public function show($id)
     {
         //ver plato n
+        $dish = Dish::findOrFail($id);
         return response()->
             json(['data' => new DishResource($dish)], 200);
     }

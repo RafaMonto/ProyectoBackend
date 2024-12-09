@@ -10,6 +10,10 @@ class Sale extends Model
      //
      use HasFactory;
 
+     public function employee()
+     {
+         return $this->belongsTo(Employee::class, 'employed_id');
+     }
 
      protected $fillable = [
         'total',
