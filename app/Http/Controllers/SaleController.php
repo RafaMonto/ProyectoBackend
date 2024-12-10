@@ -14,7 +14,7 @@ class SaleController extends Controller
     public function index(Request $request)
     {
         //mostar todas las ventas
-        $sort = $request->input('sort', 'name');
+        $sort = $request->input('sort', 'total');
         $type = $request->input('type', 'asc');
 
         $validType = ['asc', 'desc'];
@@ -26,7 +26,7 @@ class SaleController extends Controller
                 json(['data' => $message], 400);
         }
 
-        $validSort = ['total','emplyeed_id','dishes'];
+        $validSort = ['total','employee_id','dishes'];
 
         if (! in_array($sort, $validSort, true)) {
             $message = "Invalid sort field: $sort";
@@ -56,9 +56,10 @@ class SaleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Sale $sale)
+    public function show($id)
     {
         //ver venta n
+        $sale = Sale::findOrFail($id);
         return response()->
             json(['data' => $sale], 200);
     }

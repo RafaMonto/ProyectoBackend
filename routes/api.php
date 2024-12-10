@@ -93,3 +93,4 @@ Route::middleware(['auth:sanctum'])->group(function() {
     Route::get('/reports/dishes',
         [App\Http\Controllers\ReportController::class, 'dishesReport']);
 });
+

@@ -57,9 +57,10 @@ class InventoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Inventory $inventory)
+    public function show($id)
     {
         //ver inventario n
+        $inventory = Inventory::findOrFail($id);
         return response()->
             json(['data' => new InventoryResource($inventory)], 200);
     }

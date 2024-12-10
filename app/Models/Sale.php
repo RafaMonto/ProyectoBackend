@@ -17,8 +17,9 @@ class Sale extends Model
 
      protected $fillable = [
         'total',
-        'created_at_exact',
-        'employed_id',
+        'employee_id',
         'dishes'
      ];
+
+     public $timestamps = true;
 }
