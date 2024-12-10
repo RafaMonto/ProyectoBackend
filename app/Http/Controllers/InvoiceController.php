@@ -62,9 +62,10 @@ class InvoiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Invoice $invoice)
+    public function show($id)
     {
         // Return a specific invoice
+        $invoice = Invoice::findOrFail($id);
         return response()->json(['data' => $invoice], 200);
     }
 

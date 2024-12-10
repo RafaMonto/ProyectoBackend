@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at_exact')->useCurrent();
             $table->string('total');
-            $table->foreignId('employed_id');
+            $table->foreignId('employee_id');
             $table->string('dishes');
+            $table->timestamps();
 
-            $table->foreign('employed_id')
+            $table->foreign('employee_id')
                 ->references('id')
                 ->on('employees')
                 ->onDelete('cascade');

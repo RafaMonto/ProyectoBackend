@@ -14,39 +14,34 @@ Route::get('/dish/{id}',
     [App\Http\Controllers\DishController::class, 'show']);
 
 Route::get('/inventory',
-    [App\Http\Controllers\DishController::class, 'index']);
+    [App\Http\Controllers\InventoryController::class, 'index']);
 Route::get('/inventory/{id}',
-    [App\Http\Controllers\DishController::class, 'show']);
+    [App\Http\Controllers\InventoryController::class, 'show']);
 
 Route::get('/employee',
-    [App\Http\Controllers\DishController::class, 'index']);
+    [App\Http\Controllers\EmployeeController::class, 'index']);
 Route::get('/employee/{id}',
-    [App\Http\Controllers\DishController::class, 'show']);
+    [App\Http\Controllers\EmployeeController::class, 'show']);
 
 Route::get('/supplier',
-    [App\Http\Controllers\DishController::class, 'index']);
+    [App\Http\Controllers\SupplierController::class, 'index']);
 Route::get('/supplier/{id}',
-    [App\Http\Controllers\DishController::class, 'show']);
+    [App\Http\Controllers\SupplierController::class, 'show']);
 
 Route::get('/invoice',
-    [App\Http\Controllers\DishController::class, 'index']);
+    [App\Http\Controllers\InvoiceController::class, 'index']);
 Route::get('/invoice/{id}',
-    [App\Http\Controllers\DishController::class, 'show']);
+    [App\Http\Controllers\InvoiceController::class, 'show']);
 
 Route::get('/category',
-    [App\Http\Controllers\DishController::class, 'index']);
+    [App\Http\Controllers\CategoryController::class, 'index']);
 Route::get('/category/{id}',
-    [App\Http\Controllers\DishController::class, 'show']);
+    [App\Http\Controllers\CategoryController::class, 'show']);
 
 Route::get('/sale',
-    [App\Http\Controllers\DishController::class, 'index']);
+    [App\Http\Controllers\SaleController::class, 'index']);
 Route::get('/sale/{id}',
-    [App\Http\Controllers\DishController::class, 'show']);
-
-Route::get('/inventory',
-    [App\Http\Controllers\DishController::class, 'index']);
-Route::get('/inventory/{id}',
-    [App\Http\Controllers\DishController::class, 'show']);
+    [App\Http\Controllers\SaleController::class, 'show']);
 
 Route::get('/menus',
     [App\Http\Controllers\DishController::class, 'index']);
@@ -90,6 +85,3 @@ Route::middleware(['auth:sanctum'])->group(function() {
     Route::get('/reports/dishes',
         [App\Http\Controllers\ReportController::class, 'dishesReport']);
 });
-
-Route::apiResource('/suppliers', SupplierController::class);
-Route::apiResource('/invoices', InvoiceController::class);

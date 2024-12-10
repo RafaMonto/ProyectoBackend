@@ -64,9 +64,10 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Employee $employee)
+    public function show($id)
     {
         // Mostrar detalles de un empleado específico
+        $employee = Employee::findOrFail($id);
         return response()->json(['data' => new EmployeeResource($employee)], 200);
     }
 

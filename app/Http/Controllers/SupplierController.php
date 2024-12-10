@@ -12,11 +12,10 @@ class SupplierController extends Controller
      */
     public function index(Request $request)
     {
-        // Return all suppliers with sorting
-        $sort = $request->input('sort', 'name'); // Default sorting field
-        $type = $request->input('type', 'asc'); // Default sorting type
+        $sort = $request->input('sort', 'name');
+        $type = $request->input('type', 'asc');
 
-        $validType = ['asc', 'desc']; // Valid sorting types
+        $validType = ['asc', 'desc'];
 
         if (!in_array($type, $validType, true)) {
             $message = "Invalid sort type: $type";
@@ -24,7 +23,7 @@ class SupplierController extends Controller
             return response()->json(['data' => $message], 400);
         }
 
-        $validSort = ['name', 'email', 'phone', 'address']; // Valid sorting fields
+        $validSort = ['name', 'email', 'phone', 'address'];
 
         if (!in_array($sort, $validSort, true)) {
             $message = "Invalid sort field: $sort";
@@ -66,9 +65,10 @@ class SupplierController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Supplier $supplier)
+    public function show($id)
     {
         // Return a specific supplier
+        $supplier = Supplier::findOrFail($id);
         return response()->json(['data' => $supplier], 200);
     }
 

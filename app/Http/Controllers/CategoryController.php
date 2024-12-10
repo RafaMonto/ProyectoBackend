@@ -61,9 +61,10 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show($id)
     {
         // Retornar una categoría específica
+        $category = Category::findOrFail($id);
         return response()->json(['data' => new CategoryResource($category)], 200);
     }
 
