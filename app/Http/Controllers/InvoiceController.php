@@ -3,13 +3,49 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class InvoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+     /**
+     * Enviar la factura como PDF por correo.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sendInvoice(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'invoice_id' => 'required|exists:invoices,id',
+        ]);
+
+        $invoice = Invoice::with('sale')->find($request->invoice_id);
+
+        // Genera el PDF con los datos de la factura
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('pdf.invoice', ['invoice' => $invoice]);
+
+        // Envía el correo
+        Mail::send([], [], function ($message) use ($request, $pdf, $invoice) {
+            $message->to($request->email)
+                ->subject("Factura #{$invoice->id}")
+                ->attachData($pdf->output(), "Factura_{$invoice->id}.pdf", [
+                    'mime' => 'application/pdf',
+                ])
+                ->setBody("Hola, adjunto encontrarás la factura #{$invoice->id}.");
+        });
+
+        return response()->json(['message' => 'Factura enviada exitosamente.']);
+    }
+
     public function index(Request $request)
     {
         // Return all invoices with sorting

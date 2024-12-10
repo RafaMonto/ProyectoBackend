@@ -16,4 +16,9 @@ class Invoice extends Model
         'total',
         'clientName',
     ];
+
+    public function sale()
+    {
+        return $this->belongsTo(Sale::class);
+    }
 }
