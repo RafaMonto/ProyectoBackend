@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /* Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
@@ -93,4 +92,7 @@ Route::middleware(['auth:sanctum'])->group(function() {
     Route::get('/reports/dishes',
         [App\Http\Controllers\ReportController::class, 'dishesReport']);
 });
+
+Route::post('/send-invoice',
+    [App\Http\Controllers\InvoiceController::class, 'sendInvoice']);
 
