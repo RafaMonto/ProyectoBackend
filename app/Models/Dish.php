@@ -33,6 +33,6 @@ class Dish extends Model
      */
     public function menus()
     {
-        return $this->belongsToMany(Menu::class);
+        return $this->belongsToMany(Menu::class, 'dish_menu', 'dish_id', 'menu_id');
     }
 }

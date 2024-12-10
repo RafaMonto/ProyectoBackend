@@ -22,9 +22,4 @@ class Sale extends Model
      ];
 
      public $timestamps = true;
-
-     public function invoices()
-    {
-        return $this->hasMany(Invoice::class);
-    }
 }

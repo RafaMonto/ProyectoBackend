@@ -26,7 +26,6 @@ class MenuController extends Controller
         if (!in_array($sort, $validSort, true)) {
             return response()->json(['message' => "Invalid sort field: $sort"], 400);
         }
-
         // Filtrar por fecha si se proporciona
         $date = $request->input('date');
         if ($date) {

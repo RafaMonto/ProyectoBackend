@@ -17,6 +17,6 @@ class Menu extends Model
      */
     public function dishes()
     {
-        return $this->belongsToMany(Dish::class);
+        return $this->belongsToMany(Dish::class, 'dish_menu', 'menu_id', 'dish_id');
     }
 }

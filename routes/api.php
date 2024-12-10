@@ -91,8 +91,8 @@ Route::middleware(['auth:sanctum'])->group(function() {
         [App\Http\Controllers\ReportController::class, 'employeeReport']);
     Route::get('/reports/dishes',
         [App\Http\Controllers\ReportController::class, 'dishesReport']);
+    Route::post('/send-invoice',
+        [App\Http\Controllers\InvoiceController::class, 'sendInvoice']);
 });
 
-Route::post('/send-invoice',
-    [App\Http\Controllers\InvoiceController::class, 'sendInvoice']);
 
